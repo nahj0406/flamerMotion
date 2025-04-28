@@ -1,10 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { motion, useMotionValue, useTransform } from "framer-motion";
+import Splitting from 'splitting';
+import SplitMotion from './flamerMotion/SplitMotion';
 
 function App() {
+
+  useEffect(() => {
+    Splitting();
+  })
 
   // useMotionValue, useTransform 등은 라이브러리 안에 내장된 훅.
   // useMotionValue를 상태에 저장하고 css에 값으로 사용 가능.
@@ -61,8 +67,10 @@ function App() {
           custom={clicked}
           onClick={()=> setClicked(treu)}
         >
-          Click me!
+          <h1 data-splitting>Click me!</h1>
         </motion.div>
+
+        <SplitMotion>안녕하세요 형님</SplitMotion>
       </article>
 
       <article className="sec2">
